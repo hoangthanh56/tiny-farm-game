@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#285c42">
+  <title>Tiny Farm · Nông trại nhỏ</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="game-core.js"></script>
+  <script defer src="game.js"></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="./index.html"><span>🌱</span> tiny farm<span class="brand-dot">.</span></a><span class="tagline">Một chút bình yên, mỗi ngày.</span><div class="wallet">🪙 <strong id="money">80</strong><span>xu</span></div></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">GÓC NHỎ CỦA BẠN</p><h1>Chào mừng về nông trại<span>!</span></h1><p>Gieo một hạt mầm. Chờ một niềm vui.</p></div><div class="weather">☀️ <span>Trời nắng đẹp<small>Một ngày tuyệt vời để trồng cây</small></span></div></section>
+    <div class="layout">
+      <section class="farm-card">
+        <div class="section-heading"><div><p class="eyebrow">VƯỜN NHÀ</p><h2>Mảnh vườn nhỏ</h2></div><span class="pill" id="plot-count">12 ô đất</span></div>
+        <div class="landscape"><span>🌳</span><span>🏡</span><span>🌲</span><div class="landscape-caption">Chậm lại một chút, cây đang lớn lên.</div></div>
+        <div class="field-wrap"><div id="field" class="field" aria-label="Các ô đất nông trại"></div></div>
+        <div class="toolbar" aria-label="Chọn công cụ"><button data-tool="plant" class="tool active" aria-pressed="true">🌱 <span>Gieo hạt</span></button><button data-tool="water" class="tool" aria-pressed="false">💧 <span>Tưới nước</span></button><button data-tool="harvest" class="tool" aria-pressed="false">🧺 <span>Thu hoạch</span></button></div>
+        <p class="tool-hint" id="tool-hint">Chọn hạt giống bên phải, rồi bấm vào ô đất trống.</p>
+        <div class="farm-bottom"><span id="harvest-count">Đã thu hoạch: 0 cây</span><button id="expand" class="text-button">Mở thêm 4 ô · 100 xu ↗</button></div>
+      </section>
+      <aside>
+        <section class="panel"><div class="section-heading"><div><p class="eyebrow">GIEO ĐIỀU TỐT LÀNH</p><h2>Hộp hạt giống</h2></div><span>🌾</span></div><p class="muted">Chọn loại cây bạn muốn trồng.</p><div id="seeds" class="seeds"></div><p class="small-note">Thời gian lớn được tính sau khi tưới nước. Mỗi cây chỉ cần tưới một lần.</p></section>
+        <section class="panel basket"><div class="section-heading"><h2>Giỏ thu hoạch</h2><span>🧺</span></div><div id="inventory"></div><button class="primary" id="sell">Bán tất cả · 0 xu</button></section>
+        <section class="tip"><span>✦</span><div><strong>Vụ mùa đầu tiên</strong><p>Gieo hạt → tưới nước → chờ cây chín → thu hoạch → bán trong giỏ.</p></div></section>
+      </aside>
+    </div>
+    <footer><span id="save-status">Tiến trình được lưu tự động trên trình duyệt này.</span><button id="reset" class="text-button">Chơi lại từ đầu</button></footer>
+  </main>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <dialog id="reset-dialog"><h2>Bắt đầu mùa vụ mới?</h2><p>Toàn bộ tiền, cây trồng và hạt giống hiện tại sẽ được đặt lại.</p><div class="dialog-actions"><button id="cancel-reset">Giữ nông trại</button><button id="confirm-reset" class="primary">Chơi lại</button></div></dialog>
+</body>
+</html>
